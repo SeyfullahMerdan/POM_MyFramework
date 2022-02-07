@@ -31,8 +31,8 @@ public class Driver {
             // diger kullanımlarda devreye girmeyecek.
             switch (ConfigReader.getProperty("browser")) {
                 case "chrome" :
-                    driver=new ChromeDriver();
                     WebDriverManager.chromedriver().setup();
+                    driver=new ChromeDriver();
                     break;
                 case "firefox" :
                     WebDriverManager.firefoxdriver().setup();
@@ -71,6 +71,17 @@ public class Driver {
             // kapattıktan sonra driveri sıfırlıyorum ki bir daha çagırdıgımda nulla takılsın ve setup methodunda driveri
             // çagırsın ve çalıştırsın
         }
+    }
+
+
+    public static void bekle (int saniye) {
+
+        try {
+            Thread.sleep(saniye * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
